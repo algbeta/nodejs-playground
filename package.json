@@ -1,0 +1,26 @@
+{
+  "name": "nodejs-playground",
+  "version": "1.0.0",
+  "description": "my test project to play with  nodejs",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/algbeta/nodejs-playground.git"
+  },
+  "keywords": [
+    "nodejs"
+  ],
+  "author": "Algbeta",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/algbeta/nodejs-playground/issues"
+  },
+  "homepage": "https://github.com/algbeta/nodejs-playground#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}
