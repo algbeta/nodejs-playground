@@ -1,21 +1,22 @@
-const childProcess = require('child_process');
+const childProcess = require("child_process");
 
-const execProcess = (command, callback) => {
-  childProcess.exec(command, (error, stdout, stderr) => {
-    console.clear();
-    console.log(stdout);
-    if(callback) {
-      callback(stdout);
-    }
+const execProcess = (command) => {
+  return new Promise((resolve, reject) => {
+    childProcess.exec(command, (error, stdout, stderr) => {
+      if (stderr) {
+        reject(stderr);
+      }
 
-    if(stderr) {
-      console.log(`stderr: ${stderr}`);
-    }
+      if (error !== null) {
+        console.log(`error: ${error}`);
+        reject(stderr);
+      }
 
-    if (error !== null) {
-      console.log(`error: ${error}`);
-    }
+      console.clear();
+      console.log(stdout);
+      resolve(stdout);
+    });
   });
-}
+};
 
 module.exports = execProcess;

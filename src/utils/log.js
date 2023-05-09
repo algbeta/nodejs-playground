@@ -11,8 +11,16 @@ const createDirIfNotExists = dir =>
 
 const writeBufferToLogFile = () => {
   createDirIfNotExists(logDirLocation);
-  fs.appendFile(logFileLocation, getBuffer(), (err) => {console.log(err || 'Log file updated!')});
-  clearBuffer();
+  return new Promise((resolve, reject) => {
+    fs.appendFile(logFileLocation, getBuffer(), (err) => {
+      if (err) {
+        reject(err);
+      }
+        
+      clearBuffer();
+      resolve("file updated successfully!");
+    });
+  });
 }
 
 module.exports = {
