@@ -1,15 +1,19 @@
 const execProcess = require("./utils/execProcess");
 const { addValueToBufferWithTimestamp } = require("./utils/buffer");
 const { writeBufferToLogFile } = require("./utils/log");
+const { isWindows } = require("./utils/os");
+const { WINDOWS_TOP_COMMAND, UNIX_TOP_COMMAND } = require("./constants");
 
 const cleanUp = () => {
   clearInterval(interval);
   clearInterval(interval2);
 };
 
+const command = isWindows() ? WINDOWS_TOP_COMMAND : UNIX_TOP_COMMAND;
+
 const checkActivity = () => {
   try {
-    execProcess("ps -A -o %cpu,%mem,comm | sort -nr | head -n 1")
+    execProcess(command)
       .then((value) => addValueToBufferWithTimestamp(value))
       .catch((err) => cleanUp());
   } catch (err) {
