@@ -4,7 +4,10 @@
   "description": "my test project to play with  nodejs",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon ./src/activityMonitor.js",
+    "start": "nodemon ./src/task3/CsvTransform.js",
+    "task3:csv": "node ./src/task3/CsvTransform.js",
+    "task3:event": "node ./src/task3/EventEmitter/index.js",
+    "task3:withTime": "node ./src/task3/EventEmitter/WithTime.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -22,5 +25,8 @@
   "homepage": "https://github.com/algbeta/nodejs-playground#readme",
   "devDependencies": {
     "nodemon": "^2.0.22"
+  },
+  "dependencies": {
+    "csvtojson": "^2.0.10"
   }
 }
