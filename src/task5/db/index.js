@@ -18,10 +18,7 @@ const getUser = (id) => users.find((item) => item.id == id) || {};
 
 const getUserHobbies = (id) => {
   const user = getUser(id);
-  if (user && user.hobbies) {
-    return user.hobbies;
-  }
-  return [];
+  return user.hobbies;
 };
 
 const deleteUser = (id) => {
@@ -32,7 +29,9 @@ const deleteUser = (id) => {
 };
 const createUser = (data) => {
   const id = users.slice(-1)[0].id || 0;
-  users.push({ id: id + 1, ...JSON.parse(data) });
+  const userData = JSON.parse(data);
+  const hobbies = userData.hobbies || []
+  users.push({ id: id + 1, ...userData, hobbies });
   return getUser(id + 1);
 };
 

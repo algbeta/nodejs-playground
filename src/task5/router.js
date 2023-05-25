@@ -10,8 +10,6 @@ const handleUknownRoute = (res) => {
 
 const processRoute = (url, method, req, res) => {
   const arrayUrl = url.split("/").filter((value) => !!value);
-  console.log("arrayurl");
-  console.log(arrayUrl);
 
   if (arrayUrl[0] !== "users") {
     handleUknownRoute(res);
@@ -67,6 +65,9 @@ const processRoute = (url, method, req, res) => {
           userService.updateUser(lastUrlElement, body, res);
         });
       break;
+    }
+    default: {
+      handleUknownRoute(res);
     }
   }
 };
