@@ -4,7 +4,7 @@
   "description": "my test project to play with  nodejs",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon ./src/task3/CsvTransform.js",
+    "start": "nodemon ./src/task5/index.js",
     "task3:csv": "node ./src/task3/CsvTransform.js",
     "task3:event": "node ./src/task3/EventEmitter/index.js",
     "task3:withTime": "node ./src/task3/EventEmitter/WithTime.js",
